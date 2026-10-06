@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bill Saathi · help with a hospital bill</title>
+<meta name="description" content="Find government schemes, charity-hospital rules and hospital options that can lower a hospital bill in India. English, Hindi, Marathi. Works offline. Nothing leaves your phone.">
+<meta name="theme-color" content="#0f5c55">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="brand"><img src="icon.svg" alt="" width="34" height="34"><div><b data-t="appName">Bill Saathi</b><small data-t="tagline"></small></div></div>
+  <div class="tools">
+    <label class="sr" for="lang" data-t="language">Language</label>
+    <select id="lang" aria-label="Language">
+      <option value="en">English</option><option value="hi">हिंदी</option><option value="mr">मराठी</option>
+    </select>
+    <button id="size" class="iconbtn" aria-pressed="false" title="Text size"><span aria-hidden="true">A<sup>+</sup></span><span class="sr" data-t="textSize">Text size</span></button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <section id="v-start" class="view" aria-labelledby="startTitle">
+    <div class="hero">
+      <h1 id="startTitle" data-t="startTitle"></h1>
+      <p data-t="startBody"></p>
+      <button class="primary big" data-go="q" data-t="startBtn"></button>
+      <div class="pair">
+        <button class="ghost" data-go="bill" data-t="explainBtn"></button>
+        <button class="ghost" data-go="letter" data-t="letterBtn"></button>
+      </div>
+      <p class="privacy"><span aria-hidden="true">🔒</span> <span data-t="privacy"></span></p>
+    </div>
+  </section>
+
+  <section id="v-q" class="view" hidden aria-live="polite">
+    <div class="progress" role="progressbar" aria-labelledby="stepLabel" aria-valuemin="1" aria-valuemax="7"><span id="bar"></span></div>
+    <p class="step" id="stepLabel"></p>
+    <fieldset id="qbox"></fieldset>
+    <div class="row">
+      <button class="ghost" id="qBack" data-t="back"></button>
+      <button class="link" id="qSkip" data-t="skip"></button>
+    </div>
+  </section>
+
+  <section id="v-results" class="view" hidden aria-labelledby="resTitle">
+    <h1 id="resTitle" data-t="resultsTitle"></h1>
+    <p class="sub" data-t="resultsSub"></p>
+    <ol id="cards" class="cards"></ol>
+    <div class="panel" id="checklistPanel">
+      <h2 data-t="checklist"></h2>
+      <ul id="checklist" class="checklist"></ul>
+      <div class="row"><button class="ghost" id="printList" data-t="printChecklist"></button><button class="link" data-go="q" id="restart" data-t="restart"></button></div>
+    </div>
+    <p class="fine" id="checkedNote"></p>
+  </section>
+
+  <section id="v-bill" class="view" hidden aria-labelledby="billTitle">
+    <h1 id="billTitle" data-t="billTitle"></h1>
+    <p class="sub" data-t="billSub"></p>
+    <label class="sr" for="billText" data-t="billTitle"></label>
+    <textarea id="billText" rows="8" spellcheck="false"></textarea>
+    <div class="row"><button class="ghost" id="sample" data-t="sampleBill"></button><button class="primary" id="analyse" data-t="analyse"></button></div>
+    <div id="billOut" aria-live="polite"></div>
+  </section>
+
+  <section id="v-letter" class="view" hidden aria-labelledby="letterTitle">
+    <h1 id="letterTitle" data-t="letterTitle"></h1>
+    <p class="sub" data-t="letterSub"></p>
+    <form id="letterForm" class="form">
+      <fieldset><legend data-t="l_type"></legend>
+        <label class="choice small"><input type="radio" name="lt" value="itemised" checked><span data-t="lt_itemised"></span></label>
+        <label class="choice small"><input type="radio" name="lt" value="instalment"><span data-t="lt_instalment"></span></label>
+        <label class="choice small"><input type="radio" name="lt" value="ipf"><span data-t="lt_ipf"></span></label>
+      </fieldset>
+      <label><span data-t="l_patient"></span><input name="patient" autocomplete="off"></label>
+      <label><span data-t="l_hospital"></span><input name="hospital" autocomplete="off"></label>
+      <label><span data-t="l_ip"></span><input name="ip" autocomplete="off"></label>
+      <label><span data-t="l_amount"></span><input name="amount" inputmode="numeric" autocomplete="off"></label>
+      <label class="months"><span data-t="l_months"></span><input name="months" inputmode="numeric" value="6" autocomplete="off"></label>
+      <label><span data-t="l_writer"></span><input name="writer" autocomplete="off"></label>
+      <label><span data-t="l_phone"></span><input name="phone" inputmode="tel" autocomplete="off"></label>
+      <button class="primary" type="submit" data-t="makeLetter"></button>
+    </form>
+    <div id="letterOut" hidden>
+      <pre id="letterText" class="letter" tabindex="0"></pre>
+      <div class="row wrap">
+        <button class="ghost" id="copyLetter" data-t="copyLetter"></button>
+        <button class="ghost" id="printLetter" data-t="printLetter"></button>
+        <a class="ghost btnlike" id="waLetter" target="_blank" rel="noopener" data-t="shareWA"></a>
+      </div>
+    </div>
+  </section>
+
+  <p class="fine disclaimer" data-t="disclaimer"></p>
+</main>
+
+<nav class="tabs" aria-label="Sections">
+  <button data-go="q" data-tab="help"><span aria-hidden="true">🧭</span><span data-t="navHelp"></span></button>
+  <button data-go="bill" data-tab="bill"><span aria-hidden="true">🧾</span><span data-t="navBill"></span></button>
+  <button data-go="letter" data-tab="letter"><span aria-hidden="true">✉️</span><span data-t="navLetter"></span></button>
+</nav>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script src="i18n.js"></script>
+<script src="schemes.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

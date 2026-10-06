@@ -1,0 +1,10 @@
+{
+  "name": "Bill Saathi",
+  "short_name": "Bill Saathi",
+  "description": "Help with a hospital bill in India: schemes, charity-hospital rules, bill explainer and request letters. English, Hindi, Marathi.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f3ec",
+  "theme_color": "#0f5c55",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
